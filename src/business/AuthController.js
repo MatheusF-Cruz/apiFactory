@@ -7,10 +7,12 @@ class AuthController{
     }
 
     async main() {
-        const authHeader = this.req.headers.authorization
-        const [, token] = authHeader.split(' ')
-
+        // const authHeader = this.req.headers.authorization
         try {
+            const authHeader = this.getToken(this.req.headers.authorization)
+
+            const [, token] = authHeader.split(' ')
+
             const decoded = this.jwt.verify(token); 
 
             const id = decoded.id;
@@ -18,7 +20,19 @@ class AuthController{
 
             return this.res.json(user[0].email)
         } catch (error) {
-            return this.res.status(401).json({error: 'Invalid Token'})
+            return this.res.status(error.status).json({error: error.message})
+        }
+    }
+
+    getToken(auth) {
+        try {
+            const authHeader = auth
+            if(!authHeader) throw new Error('Missing Token')  
+            return authHeader
+        } catch (error) {
+            const err = new Error(error.message)
+            err.status = 400
+            throw err         
         }
     }
 }
