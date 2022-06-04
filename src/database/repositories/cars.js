@@ -1,13 +1,13 @@
-class Users{
+class Cars{
     constructor(databaseConnection){
         this.databaseConnection = databaseConnection
     }
 
     get tableName(){
-        return 'users'
+        return 'cars'
     }
 
-    async getUsers(){
+    async getCars(){
         return await this.databaseConnection(this.tableName)
     }
     async getUserByEmail(email){
@@ -16,8 +16,8 @@ class Users{
     async getUserById(id){
         return await this.databaseConnection(this.tableName).where({id:id})
     }
-    async create(user){
-        return await this.databaseConnection(this.tableName).insert(user)
+    async create(car){
+        return await this.databaseConnection(this.tableName).insert(car)
     }
 }
-export default Users
+export default Cars

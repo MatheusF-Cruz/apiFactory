@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 dotenv.config({
     path: `./${process.env.NODE_ENV}.env`
 });
+
 module.exports = {
     development: {
         client: 'mysql2',
@@ -23,3 +24,4 @@ module.exports = {
         }
     }
 };
+

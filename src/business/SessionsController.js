@@ -39,7 +39,7 @@ class SessionController {
                 id:id,
                 email:email
             },
-            token: this.jwt.sign(id)
+            token: this.jwt.sign(email)
          }
         )
         

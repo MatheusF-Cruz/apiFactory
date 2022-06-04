@@ -1,9 +1,9 @@
 class AuthController{
-    constructor(Jwt,req,res,User){
+    constructor(Jwt,req,res,Users){
         this.jwt = Jwt
         this.req = req
         this.res = res
-        this.users = User
+        this.users = Users
     }
 
     async main() {

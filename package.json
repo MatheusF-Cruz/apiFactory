@@ -22,6 +22,7 @@
   },
   "scripts": {
     "start": "SET NODE_ENV=development&& node src/server.js",
-    "test": "node ./node_modules/mocha/bin/mocha --require ./test/hooks.js --recursive"
+    "test": "node ./node_modules/mocha/bin/mocha --require ./test/hooks.js --recursive",
+    "knex:run": "SET NODE_ENV=development&& node ./node_modules/knex/bin/cli.js --esm migrate:latest"
   }
 }

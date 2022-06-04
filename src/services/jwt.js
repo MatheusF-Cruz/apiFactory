@@ -5,8 +5,8 @@ class Jwt {
         this.jwt = Jwt
     }
 
-    sign(id) {
-        return this.jwt.sign({ id: id }, authConfig.secret, {
+    sign(email) {
+        return this.jwt.sign({ email: email }, authConfig.secret, {
             expiresIn: authConfig.expiresIn,
         })
     }
