@@ -13,7 +13,7 @@ class AuthController{
 
             const [, token] = authHeader.split(' ')
 
-            const decoded = this.jwt.verify(token); 
+            const decoded = this.jwt.verify(token); aaaa
 
             const id = decoded.id;
             const user = await this.users.getUserById(id)
